@@ -1,0 +1,112 @@
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.sidebar {
+    background-color: #343a40; /* Dark background color */
+    padding: 10px;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+}
+
+.sidebar h5 {
+    text-align: center;
+    color: #fff; /* White text color */
+    margin-bottom: 20px;
+}
+
+.sidebar .nav-item {
+    padding: 10px 0;
+}
+
+.sidebar .nav-item a {
+    color: #adb5bd; /* Lighter text color */
+    font-size: 16px;
+    transition: all 0.3s ease;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.sidebar .nav-item a.active,
+.sidebar .nav-item a:hover {
+    background-color: #495057; /* Darker background color on hover/active */
+    color: #fff;
+}
+
+.sidebar .notification-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: red; /* Red notification dot */
+    border-radius: 50%;
+    margin-left: 5px;
+    visibility: hidden; /* Initially hidden */
+}
+
+.sidebar .nav-item.active .notification-dot {
+    visibility: visible; /* Show dot when item is active */
+}
+
+.main-content {
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header div {
+    color: #6c757d; /* Text color */
+}
+
+.header .logo {
+    display: flex;
+    align-items: center;
+}
+
+.header .logo img {
+    height: 30px; /* Adjust height as needed */
+    margin-right: 10px;
+}
+
+.header .profile-link {
+    cursor: pointer;
+}
+
+.card {
+    margin-bottom: 20px;
+}
+
+.time-display {
+    font-size: 2rem;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.break-overtime {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    color: #6c757d; /* Text color */
+}
+
+.date-select {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.sidebar .nav-item.active .nav-link,
+.sidebar .nav-item:hover .nav-link {
+background-color: #495057; /* Darker background color on hover/active */
+color: #fff;
+}
+.sidebar .nav-item.active .notification-dot {
+visibility: visible; /* Show dot when item is active */
+}
+

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Self Services</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+    
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2 sidebar">
+                <h5>Employee Info</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active" onclick="toggleActive(this)">Time Sheet<span class="notification-dot"></span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" onclick="toggleActive(this)">View Payslips<span class="notification-dot"></span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" onclick="toggleActive(this)">Leave Apply<span class="notification-dot"></span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" onclick="toggleActive(this)">Holidays/Calendar<span class="notification-dot"></span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" onclick="toggleActive(this)">Upload Documents<span class="notification-dot"></span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" onclick="toggleActive(this)">Training<span class="notification-dot"></span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" onclick="toggleActive(this)">Project Assigned<span class="notification-dot"></span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" onclick="toggleActive(this)">Team Management<span class="notification-dot"></span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" onclick="toggleActive(this)">Resignation<span class="notification-dot"></span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" onclick="toggleActive(this)">Appraisal<span class="notification-dot"></span></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-10 main-content">
+                <div class="header">
+                    <div class="logo">
+                        <img src="https://asset.brandfetch.io/idRF9wwUuR/idM44-l_7X.png" alt="Company Logo">
+                        <span>Reddys</span>
+                    </div>
+                    <div>Employee Self Services</div>
+                    <div>
+                        <button class="btn btn-outline-dark profile-link" onclick="showProfile()">PROFILE</button>
+                    </div>
+                    <div>
+                        <button class="btn btn-outline-dark">NOTIFICATION</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Time Sheet(Current Date)</h5>
+                                <p>Punch In at Which Time</p>
+                                <p id="current-date-time">Current Date & Time</p>
+                                <div id="current-time" class="time-display">HH:mm</div>
+                                <button class="btn btn-primary" onclick="punchInOut()">Punch In/Out</button>
+                                <div class="break-overtime">
+                                    <div>Break Time: <span id="break-time">--:--</span></div>
+                                    <div>OverTime: <span id="overtime">--:--</span></div>
+                                </div>
+                                <div class="date-select">
+                                    <button class="btn btn-secondary">Sym cal</button>
+                                    <button class="btn btn-secondary">Select Month</button>
+                                    <button class="btn btn-secondary">Select Year</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Statistics</h5>
+                                <div>Today: <span id="today-stat">-- hr/-- hr</span>
+                                    <div class="progress">
+                                        <div id="today-progress" class="progress-bar" role="progressbar" style="width: 0%;"></div>
+                                    </div>
+                                </div>
+                                <div>This Week: <span id="week-stat">-- hr/-- hr</span>
+                                    <div class="progress">
+                                        <div id="week-progress" class="progress-bar" role="progressbar" style="width: 0%;"></div>
+                                    </div>
+                                </div>
+                                <div>This Month: <span id="month-stat">-- hr/-- hr</span>
+                                    <div class="progress">
+                                        <div id="month-progress" class="progress-bar" role="progressbar" style="width: 0%;"></div>
+                                    </div>
+                                </div>
+                                <div>Remaining: <span id="remaining-stat">-- hr/-- hr</span>
+                                    <div class="progress">
+                                        <div id="remaining-progress" class="progress-bar bg-warning" role="progressbar" style="width: 0%;"></div>
+                                    </div>
+                                </div>
+                                <div>Overtime: <span id="overtime-stat">-- hr/-- hr</span>
+                                    <div class="progress">
+                                        <div id="overtime-progress" class="progress-bar bg-danger" role="progressbar" style="width: 0%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Today Activity</h5>
+                                <div>Punch In at Time: <span id="punch-in-time">--:--</span></div>
+                                <div>Punch Out at Time: <span id="punch-out-time">--:--</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Date</th>
+                                    <th>Punch In</th>
+                                    <th>Punch Out</th>
+                                    <th>Production Hrs</th>
+                                    <th>Break</th>
+                                    <th>OverTime</th>
+                                </tr>
+                            </thead>
+                            <tbody id="timesheet-body">
+                                <!-- Rows will be added dynamically here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+</body>
+</html>
